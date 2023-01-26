@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+:root{
+    --font-primary:'Playfair Display', serif;
+    --font-secondary:'Montserrat', sans-serif;
+    --weight-normal: 400;
+    --weight-bold: 700;
+    --primary-color: #F2994A;
+    --secondary-color: #FAFAFA;
+    --light-color: #FFFFFF;
+    --dark-color: #333333;
+    --gray-color: #BDBDBD;
+    --size-extra-hight: 48px;
+    --size-hight: 24px;
+    --size-semi-hight: 18px;
+    --size-normal: 16px;
+    --size-medium: 14px;
+    --size-small: 12px;
+    --size-mini: 10px;
+    --size-extra-mini: 8px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-secondary);
+}
+body, .description,.how__to,.partitions, .time__how,.time, .info__description, li,.preparation li{
+    display: flex;
+}
+body{
+    overflow-x: hidden;
+    padding: 32px 12px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1,h2,h3{
+    font-family: var(--font-primary);
+    color: var(--dark-color);
+}
+h1, h2{
+    font-weight: var(--weight-bold);
+}
+h1{
+    font-size: var(--size-hight);
+}
+h2{
+    font-size: var(--size-semi-hight);
+}
+.preparation h2{
+    font-size: var(--size-hight);
+    padding: 28px 0;
+}
+h3{
+    font-weight: var(--weight-normal);
+    font-size: var(--size-normal);
+    font-style: italic;
+    margin: var(--size-hight) 0 var(--size-small) 0;
+}
+img{
+    max-width: 100%;
+}
+.description{
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--size-small);
+    font-style: italic;
+    font-size: var(--size-small);
+    margin: var(--size-small) 0 var(--size-medium) 0;
+}
+.description p{
+    line-height: 15px;
+}
+.presentation>img{
+    border-radius: var(--size-small);
+}
+.how__to{
+    flex-direction: column;
+}
+.partitions, .time__how,.time{
+    flex-direction: row;
+}
+.info__description{
+    flex-direction: column;
+    gap: var(--size-mini);
+    padding: var(--size-small) 0;
+}
+.partitions, .time{
+    gap: var(--size-mini);
+}
+.partitions span{
+    color: var(--primary-color);
+}
+.info__number p{
+    font-size: var(--size-mini);
+}
+.info__number p +p{
+    padding: 1px 0;
+}
+.info__number p:first-of-type{
+    color: var(--gray-color);
+}
+.partitions p:last-of-type{
+    color: var(--primary-color);
+}
+.time__how p:last-of-type{
+    color: var(--dark-color);
+}
+.time__how{
+    justify-content: space-between;
+}
+li, .preparation li{
+    flex-direction: row;
+    font-size: var(--size-medium);
+    align-items: flex-start;
+    line-height: 25px;
+}
+li+li, .preparation li+li{
+    margin: var(--size-mini) 0;
+}
+li p>span{
+    font-weight: bold;
+}
+.nochecked::before{
+    content:"";
+    min-width: 20px;
+    height: 20px;
+    border: 1px solid var(--dark-color);
+    margin: 0 var(--size-small) 0 0;
+    border-radius: 2px;
+}
+.checkItem{
+    color: var(--gray-color);
+}
+.checked::before{
+    content:"✔";
+    min-width: 20px;
+    height: 20px;
+    border: 1px solid var(--dark-color);
+    margin: 0 var(--size-small) 0 0;
+    border-radius: 2px;
+    background: orangered;
+    color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.preparation li{
+    color: #000000;
+}
+.preparation li::before{
+    content:"";
+    min-width: 36px;
+    height: 36px;
+    font-family: var(--font-primary);
+    font-size: var(--size-normal);
+    margin: 0 var(--size-small) 0 0;
+    border-radius: var(--size-extra-mini);
+    background: var(--primary-color);
+    color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.preparation li:first-of-type::before{content:"1"}
+.preparation li:nth-of-type(2)::before{content:"2"}
+.preparation li:nth-of-type(3)::before{content:"3"}
+.preparation li:nth-of-type(4)::before{content:"4"}
+.preparation li:nth-of-type(5)::before{content:"5"}
+.preparation li:nth-of-type(6)::before{content:"6"}
+.preparation li:last-of-type::before{content:"7"}
+
+cite{
+    display: block;
+    font-size: var(--size-mini);
+    margin: var(--size-small) 0 var(--size-hight) 0;
+}
+cite, a{
+    color: var(--gray-color);
+}
+cite a{
+    text-decoration: none;
+}
+footer{
+    font-family: var(--font-secondary);
+    text-align: center;
+    font-size: var(--size-small);
+    color: gray;
+}
+footer a{
+    color: var(--dark-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media all and (min-width:750px){
+    .how__to{
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        grid-template-rows: max-content 1fr 1fr max-content;
+        grid-template-areas: "ingredientes info" "prepare ." "prepare ." "cite .";
+        gap: 0 var(--size-normal);
+    }
+    .presentation>img{
+        margin: var(--size-small) 0 var(--size-hight) 0;
+    }
+    .info__description{
+        grid-area: info;
+        background: var(--light-color);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        height: min-content;
+        padding: var(--size-extra-hight);
+        border-radius: var(--size-small);
+    }
+    .partitions,.time{
+        align-items: center;
+        justify-content: center;
+    }
+    .partitions>span, .time>span{
+        font-size: var(--size-hight);
+    }
+    .info__number p{
+        font-size: var(--size-medium);
+    }
+    .info__number p:last-of-type{
+        font-weight: bold;
+    }
+    .time__how{
+        margin-top: 12px;
+        flex-direction: column;
+        gap: var(--size-normal);
+    }
+    .ingredients{grid-area: ingredientes;}
+    .preparation{grid-area: prepare;}
+    cite{grid-area: cite;}
+}
+
+@media all and (min-width: 865px){
+    body{
+        padding: var(--size-small) 20%;
+    }
+    h1{
+        font-size: var(--size-extra-hight);
+        padding-bottom: var(--size-small);
+    }
+    .description p{
+        font-size: var(--size-medium);
+    }
+    h2{
+        font-size: var(--size-hight);
+    }
+    h3{
+        font-size: var(--size-semi-hight);
+    }
+    li{
+        font-size: var(--size-normal);
+    }
+}
